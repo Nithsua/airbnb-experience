@@ -1,24 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import katie from "./images/katie.png";
+import wedding from "./images/wedding.png";
+import bike from "./images/bike.png";
+
+import Card from "./components/Card";
+import Hero from "./components/Hero";
+import NavBar from "./components/NavBar";
+import React, { FunctionComponent } from "react";
+
+interface CardViewProps {}
+
+const CardView: FunctionComponent<CardViewProps> = (
+  props: React.PropsWithChildren<CardViewProps>
+) => {
+  return <div className="card-view">{props.children}</div>;
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <NavBar />
+      <main className="main">
+        <Hero />
+        <CardView>
+          <Card
+            image={katie}
+            rating={5.0}
+            ratingCount={6}
+            country="USA"
+            description="Life lessons with Katie Zaferes"
+            price={136}
+          />
+          <Card
+            image={wedding}
+            rating={5.0}
+            ratingCount={6}
+            country="USA"
+            description="Life lessons with Katie Zaferes"
+            price={136}
+          />
+          <Card
+            image={bike}
+            rating={5.0}
+            ratingCount={6}
+            country="USA"
+            description="Life lessons with Katie Zaferes"
+            price={136}
+          />
+        </CardView>
+      </main>
     </div>
   );
 }
